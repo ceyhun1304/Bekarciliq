@@ -182,7 +182,7 @@
 
   const stages = [
     { char: 'dudu.gif',   heading: 'Çay içək? 🍵',            subtitle: 'İstəsən əgər',         yesScale: 1   },
-    { char: 'blink.gif',  heading: 'Əminsən?!',                subtitle: 'məncə istəyirsən',      yesScale: 1.5   },
+    { char: 'blink.gif',  heading: 'Əminsən?!',                subtitle: 'məncə istəyirsən',      yesScale: 1.5 },
     { char: 'sadcat.gif', heading: 'HƏQİİ?',                   subtitle: 'çaydan zərər gəlməz',   yesScale: 2.5 },
     { char: 'pig.gif',    heading: 'İndi də yox de gör nolur', subtitle: 'məncə həyə basmalısan', yesScale: 4   },
   ];
@@ -200,22 +200,9 @@
     headingEl.textContent  = s.heading;
     subtitleEl.textContent = s.subtitle;
 
-    const maxScale = window.innerWidth < 480 ? 1.8 : s.yesScale;
-    yesBtn.style.fontSize = (18 * maxScale) + 'px';
-    const p = Math.min(maxScale, 1.8);
+    yesBtn.style.fontSize = (18 * s.yesScale) + 'px';
+    const p = Math.min(s.yesScale, 1.8);
     yesBtn.style.padding = (16 * p) + 'px ' + (36 * p) + 'px';
-
-    if (s.noScale === 0) {
-      noBtn.style.transform     = 'scale(0)';
-      noBtn.style.opacity       = '0';
-      noBtn.style.pointerEvents = 'none';
-      noBtn.style.width         = '0';
-      noBtn.style.padding       = '0';
-    } else {
-      noBtn.style.transform     = 'scale(' + s.noScale + ')';
-      noBtn.style.opacity       = s.noScale < 0.2 ? '0' : '1';
-      noBtn.style.pointerEvents = 'auto';
-    }
   }
 
   function handleNo() {
