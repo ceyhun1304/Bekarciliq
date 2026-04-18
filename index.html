@@ -200,8 +200,9 @@
     headingEl.textContent  = s.heading;
     subtitleEl.textContent = s.subtitle;
 
-    yesBtn.style.fontSize = (18 * s.yesScale) + 'px';
-    const p = Math.min(s.yesScale, 1.8);
+    const maxScale = window.innerWidth < 480 ? 1.8 : s.yesScale;
+    yesBtn.style.fontSize = (18 * maxScale) + 'px';
+    const p = Math.min(maxScale, 1.8);
     yesBtn.style.padding = (16 * p) + 'px ' + (36 * p) + 'px';
 
     if (s.noScale === 0) {
