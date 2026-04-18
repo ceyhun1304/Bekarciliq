@@ -61,10 +61,8 @@
 
   .btn-wrap {
     position: relative;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100px;
+    width: 100%;
   }
 
   .btn {
@@ -84,20 +82,24 @@
     padding: 16px 36px;
     box-shadow: 0 4px 18px rgba(92,184,92,0.35);
     position: absolute;
-    left: 16%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 2;
   }
 
-  #yes-btn:hover { background: #4aa84a; transform: none !important; }
-  #yes-btn:active { transform: scale(0.97); }
+#yes-btn:hover { background: #4aa84a; }
+#yes-btn:active { opacity: 0.9; }
 
-  #no-btn {
+#no-btn {
     background: #e8a0b4;
     font-size: 18px;
     padding: 16px 36px;
     box-shadow: 0 4px 12px rgba(232,160,180,0.3);
     position: absolute;
-    right: 16%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1;
   }
 
@@ -203,6 +205,7 @@
     yesBtn.style.fontSize = (18 * s.yesScale) + 'px';
     const p = Math.min(s.yesScale, 1.8);
     yesBtn.style.padding = (16 * p) + 'px ' + (36 * p) + 'px';
+    yesBtn.style.width = s.yesScale >= 4 ? '100%' : 'auto';
   }
 
   function handleNo() {
